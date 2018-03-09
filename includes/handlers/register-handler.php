@@ -29,5 +29,7 @@
 		$email2 = sanitazeFormString($_POST['email2']);
 		$password = sanitazeFormPassword($_POST['password']);
 		$password2 = sanitazeFormPassword($_POST['password2']);
+
+		$account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
 	}
 ?>

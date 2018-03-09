@@ -1,4 +1,9 @@
 <?php 
+	include("includes/classes/Account.php");
+
+	//Create a new instance of Account object into $account
+	$account = new Account();
+
 	include("includes/handlers/register-handler.php");
 	include("includes/handlers/login-handler.php");
 ?>

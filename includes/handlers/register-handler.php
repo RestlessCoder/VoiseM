@@ -2,24 +2,24 @@
 	
 	function sanitazeFormUsername($inputText) {
 		$inputText = strip_tags($inputText);
-		$username = str_replace(" ", "", $inputText);
+		$inputText = str_replace(" ", "", $inputText);
 		return $inputText;
 	}
 
 	function sanitazeFormPassword($inputText) {		
 		$inputText = strip_tags($inputText);
-		$username = str_replace(" ", "", $inputText);
+		$inputText = str_replace(" ", "", $inputText);
 		return $inputText;
 	}
 
 	function sanitazeFormString($inputText) {
-		$firstName = strip_tags($firstName);
-		$firstName = str_replace(" ", "", $firstName);
-		$firstName = ucfirst(strtolower($firstName)); //Convert all the string to lower case first then convert first character to uppercase
+		$inputText = strip_tags($inputText);
+		$inputText = str_replace(" ", "", $inputText);
+		$inputText = ucfirst(strtolower($inputText)); //Convert all the string to lower case first then convert first character to uppercase
 		return $inputText;
 	}
 
-	
+
 	if(isset($_POST['registerButton'])) {
 		//Register Button was pressed
 		$username = sanitazeFormUsername($_POST['username']);

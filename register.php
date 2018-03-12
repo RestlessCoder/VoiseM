@@ -28,14 +28,15 @@
 		
 		<h2>Login to your account</h2>
 
-		<p>
+		<p>	
+			<?php echo $account->getError("The username and password is incorrect"); ?>
 			<label for="loginUsername">Username</label>
-			<input id="loginUsername" name="loginUsername" type="text" placeholder="e.g John123" required></input>
+			<input id="loginUsername" name="loginUsername" type="text" placeholder="e.g John123" value="<?php echo getInputValue('loginUsername') ?>" required></input>
 		</p>
 		
 		<p>
 			<label for="loginPassword">Password</label>
-			<input id="loginPassword" name="loginPassword" type="password" placeholder="Your password" required></input>
+			<input id="loginPassword" name="loginPassword" type="password" placeholder="Your password"  value="<?php echo getInputValue('') ?>" required></input>
 		</p>
 
 		<button type="submit" name="loginButton">LOG IN</button>

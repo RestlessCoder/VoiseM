@@ -48,6 +48,7 @@
 		
 		<p>	
 			<?php echo $account->getError("Your username must be 5 to 25 characters"); ?>
+			<?php echo $account->getError("This username is already taken"); ?>
 			<label for="username">Username</label>
 			<input id="username" name="username" type="text" placeholder="e.g John123" value="<?php getInputValue('username') ?>" required></input>
 		</p>
@@ -67,6 +68,7 @@
 		<p>	
 			<?php echo $account->getError("Your email don't match"); ?>
 			<?php echo $account->getError("Your email invalid"); ?>
+			<?php echo $account->getError("This email is already taken"); ?>
 			<label for="email">Email</label>
 			<input id="email" name="email" type="email" placeholder="e.g John@hotmail.com" value="<?php getInputValue('email') ?>" required></input>
 		</p>

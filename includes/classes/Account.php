@@ -53,6 +53,12 @@
 				array_push($this->errorArray, "Your username must be 5 to 25 characters");
 				return; // Put in return there when we dont want to execute this function if we find any errors 
 			}
+
+			$checkUserNameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username='$un'");
+
+			if(mysqli_num_rows($checkUserNameQuery) != 0) {
+				array_push($this->errorArray, "This username is already taken");
+			}
 		}	
 
 		private function validateFirstName($fn) {
@@ -84,6 +90,12 @@
 			if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
 				array_push($this->errorArray, "Your email invalid");
 				return;
+			}
+
+			$checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email='$em'");
+
+			if(mysqli_num_rows($checkEmailQuery) != 0) {
+				array_push($this->errorArray, "This email is already taken");
 			}
 
 		}

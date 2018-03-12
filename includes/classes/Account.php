@@ -2,10 +2,12 @@
 
 	class Account {
 
-		private $errorArray;
+		public $con;
+		private $errorAray;
 
-		// When create variable new Account and set our errorArray variable to a empty array
-		public function  __construct() {
+		// When create variable new Account and set our errorArray variable to a empty array and pass on the connection
+		public function  __construct($con) {
+			$this->con = $con;
 			$this->errorArray = array();
 		} 
 
@@ -18,7 +20,7 @@
 
 			if(empty($this->errorArray)) {
 				//Insert into db
-				return true;
+				return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
 			}
 			else {
 				return false;
@@ -32,6 +34,17 @@
 				$error = "";
 			}
 			return "<span class='errorMessage'>$error</span>";
+		}
+
+		private function insertUserDetails($un, $fn, $ln, $em, $pw) {
+			$encryptedPw = md5($pw);
+			$profilePic = "assets/images/profile-pics/default-profile-pic.png";
+			$date = date("Y-m-d");
+
+			// Perform a query in the database
+			$result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
+
+			return $result;
 		}
 
 		private function validateUsername($un) {

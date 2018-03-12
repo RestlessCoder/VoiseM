@@ -2,8 +2,8 @@
 	include("includes/config.php");
 	include("includes/classes/Account.php");
 
-	//Create a new instance of Account object into $account
-	$account = new Account();
+	//Create a new instance of Account object into $account and pass in connection from config.php
+	$account = new Account($con);
 
 	include("includes/handlers/register-handler.php");
 	include("includes/handlers/login-handler.php");

@@ -1,0 +1,194 @@
+// ===== COLORS ====
+$dark-grey: #282828;
+$grey-color: #a0a0a0;
+$lightGrey-color: #404040;
+$white-color: #FFF;
+
+// ===== MIXIN =====
+@mixin border-box() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+} 
+
+html, body {
+  @include border-box();
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+#playingBarContainer {
+  background-color: $dark-grey;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-width: 620px;
+
+  #playingBar {
+    display: flex;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+      
+    #playingBarRight {
+      width: 30%;
+      min-width: 180px;
+
+      .controlButton {
+        background-color: transparent;
+        border: none;
+      }
+
+      img {
+        height: 24px;
+        width: 24px;
+      }
+
+      .volumeBar { 
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 16px;
+
+        .progressBar {
+          cursor: pointer;
+        }
+
+        .progressBarIcon {
+          width: 150px;
+          height: 4px;
+          background-color: $lightGrey-color;
+          border-radius: 2px;
+        }
+
+        .progress {
+          background-color: $grey-color;
+          width: 0%;
+          height: 4px;
+          border-radius: 2px;
+        }
+
+      }
+    } 
+
+    #playingBarLeft {
+      width: 30%;
+      min-width: 180px;
+
+      .content {
+        height: 60px;
+      }
+
+      .albumArtwork {
+        display: inline-block;
+        height: 100%;
+        margin-right: 5px;
+        background-size: cover;
+
+        img {
+          height: 100%;
+        }
+      }
+
+      .trackInfo {
+        display: inline-block;
+        vertical-align: top;
+
+        .trackName {
+          font-size: 18px;
+          font-weight: bold;
+          color: $white-color;
+          margin-bottom: 5px;
+        }
+
+        .artistName {
+          display: block;
+          font-size: 12px;
+          color: $grey-color;
+          margin-top: 5px;
+        }
+      }
+    }
+
+    #playingBarCenter {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+        
+      #playingBarControls {
+        width: 100%;
+        
+      .buttons {
+        display: table;
+        margin: 0 auto;
+      }
+
+      .controlButton {
+        background-color: transparent;
+        border: none;
+        vertical-align: middle;
+      }
+
+        .controlButton:hover {
+          cursor: pointer;
+        }
+
+        .play img,
+        .pause img {
+          height: 32px;
+          width: 32px;
+        }
+
+        img {
+          height: 20px;
+          width: 20px;              
+        }
+      }
+
+      .playingProgressBar { 
+        display: flex;
+        width: 100%;
+
+        .progressTime {
+          color: $grey-color;
+          font-size: 14px;
+          text-align: center;
+          min-width: 20px;
+          width: 10%;
+        }
+
+        .progressBar {
+          width: 90%;
+          cursor: pointer;
+
+          .progressBarIcon {
+            width: 100%;
+            height: 4px;
+            background-color: $lightGrey-color;
+            border-radius: 2px;
+            margin-top: 6px;
+
+          }
+
+          .progress {
+            background-color: $grey-color;
+            width: 0%;
+            height: 4px;
+            border-radius: 2px;
+          }
+
+        }
+
+      } 
+    }
+
+  }
+
+}
+

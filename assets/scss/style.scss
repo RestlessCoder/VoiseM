@@ -3,6 +3,8 @@ $dark-grey: #282828;
 $grey-color: #a0a0a0;
 $lightGrey-color: #404040;
 $white-color: #FFF;
+$darkBlack-color: #181818;
+$black-color: #000;
 
 // ===== MIXIN =====
 @mixin border-box() {
@@ -17,6 +19,61 @@ html, body {
   padding: 0;
   margin: 0;
   height: 100%;
+  background-color: $darkBlack-color;
+}
+
+#topContainer {
+  width: 100%;
+  height: 100%;
+  
+  .navbarContainer {
+    background-color: $black-color;
+    position: fixed;
+    width: 280px;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    .navBar {
+      display: flex;
+      flex-direction: column; 
+      margin: 35px;
+    }
+
+    .navBrand {
+      margin: 0 auto;
+      padding-bottom: 25px;
+    }
+
+    .group {
+      padding: 8px 5px;
+      border-top: 1px solid $grey-color;
+
+      .navItem {
+        padding: 10px 0;
+        font-weight: bold;
+        font-size: 20px;
+        position: relative;
+
+        .navItemLink {
+          text-decoration: none;
+          color: $grey-color;
+
+          &:hover {
+            color: $white-color;
+          }
+
+          .icon {
+            position: absolute;
+            top: 6px;
+            right: 0;
+            height: 28px;
+            width: 28px;
+          }
+        }
+      }
+    }
+  }
 }
 
 #playingBarContainer {
@@ -64,6 +121,7 @@ html, body {
           height: 4px;
           background-color: $lightGrey-color;
           border-radius: 2px;
+          margin-bottom: 4px;
         }
 
         .progress {

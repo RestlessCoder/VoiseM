@@ -20,6 +20,7 @@ html, body {
   margin: 0;
   height: 100%;
   background-color: $darkBlack-color;
+  letter-spacing: 1px;
 }
 
 #topContainer {
@@ -76,6 +77,61 @@ html, body {
   }
 }
 
+#mainViewContainer {
+  margin-left: 280px;
+  padding-bottom: 90px;
+  width: calc(100% - 280px);
+
+  #mainContent {
+    padding: 0 20px;
+    color: $white-color;
+
+    .mainTitleHeading {
+      padding-top: 28px;
+      padding-bottom: 15px;
+      text-align: center;
+    }
+
+    .gridViewContainer {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      justify-content: space-between;
+      margin: 0 auto;
+
+      .gridViewItem {
+        margin-bottom: 20px;
+        width: 200px;
+        height: 100%;
+
+        .gridViewInfo {
+          text-align: center;
+          font-weight: bold;
+          font-size: 20px;
+          padding-top: 5px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          color: $white-color;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        
+      }
+    }
+  }
+
+}
+
 #playingBarContainer {
   background-color: $dark-grey;
   display: flex;
@@ -83,11 +139,11 @@ html, body {
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 100px;
   min-width: 620px;
 
   #playingBar {
     display: flex;
-    height: 100px;
     box-sizing: border-box;
     padding: 20px;
     width: 100%;

@@ -12,7 +12,7 @@
 							 	<img src='" . $row['artworkPath'] ."'>
 							 	<div class='gridViewInfo'>
 							 		" . $row['title'] . " 
-						 	</div>
+						 		</div>
 					 		</a>
 					 	</div>";
 			}

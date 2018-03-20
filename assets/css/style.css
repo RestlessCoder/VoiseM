@@ -9,6 +9,9 @@ html, body {
   background-color: #181818;
   letter-spacing: 1px; }
 
+/* 
+*   Page for index.php
+*/
 #topContainer {
   width: 100%;
   height: 100%; }
@@ -194,5 +197,29 @@ html, body {
             width: 0%;
             height: 4px;
             border-radius: 2px; }
+
+/* 
+*   Page for album.php
+*/
+.entityInfo {
+  display: inline-block;
+  padding: 40px 0 10px 10px;
+  width: 100%; }
+  .entityInfo .leftSection {
+    width: 30%;
+    float: left;
+    max-width: 250px; }
+    .entityInfo .leftSection img {
+      width: 100%; }
+  .entityInfo .rightSection {
+    width: 70%;
+    float: left;
+    padding: 5px 10px 5px 35px;
+    box-sizing: border-box; }
+    .entityInfo .rightSection h1 {
+      margin: 0; }
+    .entityInfo .rightSection p {
+      color: #a0a0a0;
+      font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */

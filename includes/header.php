@@ -1,6 +1,8 @@
 <?php 
 	
 	include('includes/config.php');
+	include('includes/classes/Artist.php');
+	include('includes/classes/Album.php');
 
 	// session_destroy(); // LOGOUT
 
@@ -15,7 +17,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta charset = "utf-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Welcome to VoiseM</title>
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->

@@ -343,3 +343,82 @@ html, body {
 
   }
 }
+
+.tracklist {
+  padding: 0;
+
+  .tracklistRow {
+    height: 40px;
+    padding: 15px 10px;
+    list-style: none;
+    
+    &:hover {
+      background-color: $dark-grey;
+    }
+
+    span {
+      color: $grey-color;
+    }
+
+    .trackCount {
+      width: 5%;
+      float: left;
+
+      img {
+        width: 20px;
+        visibility: hidden;
+        position: absolute;
+        cursor: pointer;
+      }
+
+    }
+
+    &:hover .trackCount img {
+      visibility: visible;
+    }
+
+    & .trackCount span {
+      visibility: visible;
+    }
+
+    &:hover .trackCount span {
+      visibility: hidden;
+    }
+
+    .trackInfo {
+      width: 75%;
+      float: left;
+
+      span {
+        display: block;
+      }
+
+      .trackName {
+        color: $white-color;
+        margin-bottom: 5px;
+      }
+    }
+
+    .trackOptions {
+      width: 5%;
+      float: left;
+      text-align: right;
+
+      img {
+        width: 15px;
+        visibility: hidden;
+      }
+    }
+
+    &:hover .trackOptions img {
+      visibility: visible;
+    }
+
+    .trackDuration {
+      width: 10%;
+      float: left;
+      text-align: right;
+    }
+
+  }
+}

@@ -43,16 +43,16 @@ CREATE TABLE IF NOT EXISTS `songs` (
 --
 INSERT INTO `songs` (`id`, `title`, `artist`, `album`, `genre`, `duration`, `path`, `albumOrder`, `plays`) VALUES
 (1, 'If we were destined', 9, 12, 6, '4:13', 'assets/music/ben-ifweweredestined.mp3', 1, 0),
-(2, 'Havana', 2, 2, 2, '3:38', 'assets/music/camilacabello-havana.mp3', 2, 0),
-(3, 'Thats what i like', 1, 1, 1, '3:35', 'assets/music/brunomars-thatswhatilike.mp3', 3, 0),
-(4, 'Symphony', 3, 3, 3, '3:37', 'assets/music/cleanbandit-symphony.mp3', 4, 0),
-(5, 'Shape of you', 4, 4, 2, '4:23', 'assets/music/edsheeran-shapeofyou.mp3', 5, 0),
+(2, 'Havana', 2, 2, 2, '3:38', 'assets/music/camilacabello-havana.mp3', 1, 0),
+(3, 'Thats what i like', 1, 1, 1, '3:35', 'assets/music/brunomars-thatswhatilike.mp3', 1, 0),
+(4, 'Symphony', 3, 3, 3, '3:37', 'assets/music/cleanbandit-symphony.mp3', 1, 0),
+(5, 'Shape of you', 4, 4, 2, '4:23', 'assets/music/edsheeran-shapeofyou.mp3', 1, 0),
 (6, 'What Kind of Man', 6, 7, 4, '4:47', 'assets/music/jaychou-whatkindofman.mp3', 1, 0),
-(7, 'On Call 36', 7, 8, 5, '5:17', 'assets/music/joeychung-oncall36.mp3', 2, 0),
-(8, '愛你', 11, 5, 4, '4:02', 'assets/music/kimberley-aini.mp3', 2, 0),
-(9, 'Witness insecurity', 8, 9, 5, '3:47', 'assets/music/lindachung-witnessinsecurity.mp3', 3, 0),
-(10, 'Treat you better', 5, 6, 2, '3:00', 'assets/music/shawnmendes-treatyoubetter.mp3', 3, 0),
-(11, 'Stay With Me', 12, 10, 6, '3:12', 'assets/music/chanyeolpunch-staywithme.mp3', 4, 0),
+(7, 'On Call 36', 7, 8, 5, '5:17', 'assets/music/joeychung-oncall36.mp3', 1, 0),
+(8, '愛你', 11, 5, 4, '4:02', 'assets/music/kimberley-aini.mp3', 1, 0),
+(9, 'Witness insecurity', 8, 9, 5, '3:47', 'assets/music/lindachung-witnessinsecurity.mp3', 1, 0),
+(10, 'Treat you better', 5, 6, 2, '3:00', 'assets/music/shawnmendes-treatyoubetter.mp3', 1, 0),
+(11, 'Stay With Me', 12, 10, 6, '3:12', 'assets/music/chanyeolpunch-staywithme.mp3', 1, 0),
 (12, 'Ill be fine', 10, 11, 6, '4:11', 'assets/music/suran-illbefine.mp3 ', 1, 0);
 
 --

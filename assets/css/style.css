@@ -222,4 +222,50 @@ html, body {
       color: #a0a0a0;
       font-size: 14px; }
 
+.tracklist {
+  padding: 0; }
+  .tracklist .tracklistRow {
+    height: 40px;
+    padding: 15px 10px;
+    list-style: none; }
+    .tracklist .tracklistRow:hover {
+      background-color: #282828; }
+    .tracklist .tracklistRow span {
+      color: #a0a0a0; }
+    .tracklist .tracklistRow .trackCount {
+      width: 5%;
+      float: left; }
+      .tracklist .tracklistRow .trackCount img {
+        width: 20px;
+        visibility: hidden;
+        position: absolute;
+        cursor: pointer; }
+    .tracklist .tracklistRow:hover .trackCount img {
+      visibility: visible; }
+    .tracklist .tracklistRow .trackCount span {
+      visibility: visible; }
+    .tracklist .tracklistRow:hover .trackCount span {
+      visibility: hidden; }
+    .tracklist .tracklistRow .trackInfo {
+      width: 75%;
+      float: left; }
+      .tracklist .tracklistRow .trackInfo span {
+        display: block; }
+      .tracklist .tracklistRow .trackInfo .trackName {
+        color: #FFF;
+        margin-bottom: 5px; }
+    .tracklist .tracklistRow .trackOptions {
+      width: 5%;
+      float: left;
+      text-align: right; }
+      .tracklist .tracklistRow .trackOptions img {
+        width: 15px;
+        visibility: hidden; }
+    .tracklist .tracklistRow:hover .trackOptions img {
+      visibility: visible; }
+    .tracklist .tracklistRow .trackDuration {
+      width: 10%;
+      float: left;
+      text-align: right; }
+
 /*# sourceMappingURL=style.css.map */

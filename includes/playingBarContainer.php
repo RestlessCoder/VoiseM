@@ -20,7 +20,30 @@
 	});
 
 	function setTrack(trackId, newPlaylist, play) {
-		audioElement.setTrack('assets/music/jaychou-whatkindofman.mp3');
+
+		$.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+			var track = JSON.parse(data);
+			console.log(track);
+
+			$('.trackName span').text(track.title);
+			
+			$.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
+				var artist = JSON.parse(data);
+				console.log(artist);
+
+				$('.artistName span').text(artist.name);
+			});
+
+			$.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+				var album = JSON.parse(data);
+				console.log(album);
+
+				$('.albumArtwork img').attr('src', album.artworkPath);
+			});
+
+			audioElement.setTrack(track.path);
+			//audioElement.play();
+		});
 		
 		if(play) {
 			audioElement.play();
@@ -36,7 +59,6 @@
 	function pauseSong() {		
 		$('.controlButton.play').show();
 		$('.controlButton.pause').hide();
-		console.log('click');
 		audioElement.pause();
 	}
 
@@ -47,14 +69,14 @@
 		<div id="playingBarLeft">
 			<div class="content">
 				<div class="albumArtwork">
-					<img src="assets/images/albums/smiley.png" alt="smiley">
+					<img src="" alt="smiley">
 				</div>
 				<div class="trackInfo">
 					<span class="trackName">
-						<span>Happy Birthday</span>
+						<span></span>
 					</span>
 					<span class="artistName">
-						<span>Birthday Man</span>
+						<span></span>
 					</span>
 				</div>
 			</div>

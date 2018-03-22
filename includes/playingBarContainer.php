@@ -1,3 +1,47 @@
+<?php
+	$songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+
+	$resultArray = array();
+
+	while($row = mysqli_fetch_assoc($songQuery)) {
+		array_push($resultArray, $row['id']);
+	}
+
+	$jsonArray = json_encode($resultArray);
+
+?>
+
+<script>	
+
+	$(document).ready(function() {
+		currentPlaylist = <?php echo $jsonArray ?>;
+		audioElement = new Audio();
+		setTrack(currentPlaylist[0], currentPlaylist, false);
+	});
+
+	function setTrack(trackId, newPlaylist, play) {
+		audioElement.setTrack('assets/music/jaychou-whatkindofman.mp3');
+		
+		if(play) {
+			audioElement.play();
+		}
+	}
+
+	function playSong() {
+		$('.controlButton.play').hide();
+		$('.controlButton.pause').show();
+		audioElement.play();
+	}
+
+	function pauseSong() {		
+		$('.controlButton.play').show();
+		$('.controlButton.pause').hide();
+		console.log('click');
+		audioElement.pause();
+	}
+
+</script>
+
 <div id="playingBarContainer">
 	<div id="playingBar">
 		<div id="playingBarLeft">
@@ -24,10 +68,10 @@
 					<button class="controlButton previous">
 						<img src="assets/images/icons/previous.png" alt="previous">
 					</button>
-					<button class="controlButton play">
+					<button class="controlButton play" onclick="playSong()">
 						<img src="assets/images/icons/play.png" alt="play">
 					</button>
-					<button class="controlButton pause">
+					<button class="controlButton pause" onclick="pauseSong()" style="display: none;">
 						<img src="assets/images/icons/pause.png" alt="pause">
 					</button>
 					<button class="controlButton next">

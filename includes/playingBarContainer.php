@@ -17,7 +17,70 @@
 		currentPlaylist = <?php echo $jsonArray ?>;
 		audioElement = new Audio();
 		setTrack(currentPlaylist[0], currentPlaylist, false);
+		volumeChangeProgressBar(audioElement.audio);
+
+		$('#playingBarContainer').on('mousedown touchstart mousemove touchmove', function(e) {
+			e.preventDefault();
+		});
+
+		// Progress Bar
+		$('.playingProgressBar .progressBar').mousedown(function(){
+			mouseDown = true;
+		});
+
+		$('.playingProgressBar .progressBar').mousemove(function(e){
+			if(mouseDown) {
+				// Set the time of song depending on the position
+				timeFromOffset(e, this);
+			}
+		});
+
+		$('.playingProgressBar .progressBar').mouseup(function(e){
+			if(mouseDown) {
+				// Set the time of song depending on the position
+				timeFromOffset(e, this);
+			} 
+		});
+
+		// Volume Bar
+		$('.volumeBar .progressBar').mousedown(function(){
+			mouseDown = true;
+		});
+
+		$('.volumeBar .progressBar').mousemove(function(e){
+			if(mouseDown) {
+				var percentage = (e.offsetX / $(this).width());
+
+				console.log(percentage);
+
+				if(percentage >= 0 && percentage <= 1) {
+
+					audioElement.audio.volume = percentage;
+				}
+			}
+		});
+
+		$('.volumeBar .progressBar').mouseup(function(e){
+			if(mouseDown) {
+				var percentage = (e.offsetX / $(this).width());
+				if(percentage >= 0 && percentage <= 1) {
+					audioElement.audio.volume = percentage;
+				}
+			} 
+		});
+		
+		// Set the mouseDown to false whenever you let the mouse up in the whole document 
+		// instead of just the playingProgressBar HTML class
+		$(document).mouseup(function() {
+			mouseDown = false;
+		});
 	});
+
+	function timeFromOffset(mouse, progressBar) {
+		var percentage = (mouse.offsetX / $(progressBar).width()) * 100;
+		var seconds = audioElement.audio.duration * (percentage / 100);
+		audioElement.setTime(seconds);	
+	}
 
 	function setTrack(trackId, newPlaylist, play) {
 
@@ -41,8 +104,8 @@
 				$('.albumArtwork img').attr('src', album.artworkPath);
 			});
 
-			audioElement.setTrack(track.path);
-			//audioElement.play();
+			audioElement.setTrack(track);
+			playSong();
 		});
 		
 		if(play) {
@@ -51,6 +114,11 @@
 	}
 
 	function playSong() {
+
+		if(audioElement.audio.currentTime == 0) {
+			$.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
+		} 
+
 		$('.controlButton.play').hide();
 		$('.controlButton.pause').show();
 		audioElement.play();

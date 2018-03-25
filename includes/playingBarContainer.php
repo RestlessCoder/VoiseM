@@ -19,9 +19,9 @@
 		setTrack(currentPlaylist[0], currentPlaylist, false);
 		volumeChangeProgressBar(audioElement.audio);
 
-		$('#playingBarContainer').on('mousedown touchstart mousemove touchmove', function(e) {
+/*		$('#playingBarContainer').on('mousedown touchstart mousemove touchmove', function(e) {
 			e.preventDefault();
-		});
+		});*/
 
 		// Progress Bar
 		$('.playingProgressBar .progressBar').mousedown(function(){
@@ -82,24 +82,65 @@
 		audioElement.setTime(seconds);	
 	}
 
+	function previousSong() {
+		if(audioElement.audio.currentTime >= 3 || currentIndex == 0) {
+			audioElement.setTime(0);
+		} else {
+			currentIndex++;
+			setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+		}
+	}
+
+	function nextSong() {
+		if(repeat == true) {
+			audioElement.setTime(0);
+			playSong();
+			return;
+		}
+
+		if(currentIndex == currentPlaylist.length - 1) {
+			currentIndex = 0;
+		}else {
+			currentIndex++;
+		}
+
+		var trackToPlay = currentPlaylist[currentIndex];
+		setTrack(trackToPlay, currentPlaylist, true);
+	}
+
+	function setRepeat() {
+		repeat ? repeat = false : repeat = true;
+		var imageName = repeat ? "repeat-active.png" : "repeat.png";
+		$('.controlButton.repeat img').attr('src', 'assets/images/icons/' + imageName);
+
+	}
+
+	function setMute() {
+		audioElement.audio.muted ? audioElement.audio.muted = false : audioElement.audio.muted = true;
+		var imageName = audioElement.audio.muted ? "volume-mute.png" : "volume.png";
+		$('.controlButton.volume img').attr('src', 'assets/images/icons/' + imageName);
+
+		console.log(imageName);
+	}
+
+
 	function setTrack(trackId, newPlaylist, play) {
 
-		$.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
-			var track = JSON.parse(data);
-			console.log(track);
+		currentIndex = currentPlaylist.indexOf(trackId);
 
+		$.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+
+			var track = JSON.parse(data);
 			$('.trackName span').text(track.title);
 			
 			$.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
 				var artist = JSON.parse(data);
-				console.log(artist);
 
 				$('.artistName span').text(artist.name);
 			});
 
 			$.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
 				var album = JSON.parse(data);
-				console.log(album);
 
 				$('.albumArtwork img').attr('src', album.artworkPath);
 			});
@@ -155,7 +196,7 @@
 					<button class="controlButton shuffle">
 						<img src="assets/images/icons/shuffle.png" alt="shuffle">
 					</button>
-					<button class="controlButton previous">
+					<button class="controlButton previous" onclick="previousSong()">
 						<img src="assets/images/icons/previous.png" alt="previous">
 					</button>
 					<button class="controlButton play" onclick="playSong()">
@@ -164,10 +205,10 @@
 					<button class="controlButton pause" onclick="pauseSong()" style="display: none;">
 						<img src="assets/images/icons/pause.png" alt="pause">
 					</button>
-					<button class="controlButton next">
+					<button class="controlButton next" onclick="nextSong()">
 						<img src="assets/images/icons/next.png" alt="next">
 					</button>
-						<button class="controlButton repeat">
+						<button class="controlButton repeat" onclick="setRepeat()">
 						<img src="assets/images/icons/repeat.png" alt="repeat">
 					</button>
 				</div>
@@ -185,7 +226,7 @@
 		</div>
 		<div id="playingBarRight">
 			<div class="volumeBar">
-				<button class="controlButton volume">
+				<button class="controlButton volume" onclick="setMute()">
 					<img src="assets/images/icons/volume.png" alt="volume">
 				</button>
 				<div class="progressBar">

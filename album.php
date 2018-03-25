@@ -38,7 +38,7 @@
 
 					echo "<li class='tracklistRow'>
 							<div class='trackCount'>
-								<img class='play' src='assets/images/icons/play-white.png' alt='play'>
+								<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)' alt='play'>
 								<span class='trackNumber'>$i</span>
 							</div>
 							<div class='trackInfo'>
@@ -57,6 +57,12 @@
 
 				}
 			?>
+
+			<script>
+				var tempSongIds = '<?php echo json_encode($songIdArray) ?>'; // Use single quote because of JSON need to return in string
+				tempPlaylist = JSON.parse(tempSongIds);
+			</script>
+
 		</div>
 	</div>
 

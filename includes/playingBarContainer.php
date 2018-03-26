@@ -51,8 +51,6 @@
 			if(mouseDown) {
 				var percentage = (e.offsetX / $(this).width());
 
-				console.log(percentage);
-
 				if(percentage >= 0 && percentage <= 1) {
 
 					audioElement.audio.volume = percentage;
@@ -194,11 +192,10 @@
 
 			audioElement.setTrack(track);
 			playSong();
+		
 		});
 		
-		if(play) {
-			audioElement.play();
-		}
+		
 	}
 
 	function playSong() {

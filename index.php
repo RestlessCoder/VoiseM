@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('includes/includedFile.php') ?>
 
 	<h1 class="mainTitleHeading">You Might Also Like</h1>
 	<div class="gridViewContainer">
@@ -8,15 +8,15 @@
 			// Output data of each row 			
 			while($row = mysqli_fetch_assoc($albumQuery)) {
 				echo  "<div class='gridViewItem'>
-							<a href='album.php?id=" . $row['id']. "'>
+							<span role='link' tabindex='0' onclick=openPage('album.php?id=" . $row['id']. "')>
 							 	<img src='" . $row['artworkPath'] ."'>
 							 	<div class='gridViewInfo'>
 							 		" . $row['title'] . " 
 						 		</div>
-					 		</a>
+					 		</span>
 					 	</div>";
 			}
 		?>
 	</div><!-- End of grid view Container -->
 				
-<?php include('includes/footer.php'); ?>
+

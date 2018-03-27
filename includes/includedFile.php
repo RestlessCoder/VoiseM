@@ -12,9 +12,9 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
 
 	// will display full url e.g. /VoiseM/index.php?id=1
 	$url = $_SERVER['REQUEST_URI'];
-	echo "<script>openPage('url');</script>";
+	echo "<script>openPage('$url');</script>";
 	exit();
-
+	
 }
 
 ?>

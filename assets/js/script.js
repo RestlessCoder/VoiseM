@@ -6,6 +6,18 @@ var mouseDown = false;
 var currentIndex = 0;
 var repeat = false;
 var shuffle = false;
+var userLoggedIn;
+
+function openPage(url) {
+	if(url.indexOf('?') == -1) {
+		url = url + '?';
+	}
+
+	var encodedUrl = encodeURI(url + '&userLoggedIn=' + userLoggedIn);
+	$('#mainContent').load(encodedUrl);
+	$('body').scrollTop(0);
+	history.pushState(null, null, url); // Create an illusion that its changing URL but its not (manipulate the URL) because of AJAX
+}
 
 function formatTime(seconds) {
 	var time = Math.round(seconds);
@@ -31,6 +43,10 @@ function upgradeTimeProgressBar(audio) {
 function volumeChangeProgressBar(audio) {
 	var progress = audio.volume * 100;
 	$('.volumeBar .progress').css('width', progress + '%');
+}
+
+function playArtistFirstSong() {
+	setTrack(tempPlaylist[0], tempPlaylist, true);
 }
 
 function Audio() {

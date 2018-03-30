@@ -542,3 +542,83 @@ html, body {
   }
 }
 
+/* 
+*   Page for yourMusic.php
+*/
+.playlistContainer {
+  text-align: left;
+
+  .gridViewPlaylistContainer {
+    margin: 15px 0;
+
+    h3 {
+      font-size: 42px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    .createButton {
+      display: block;
+      margin: 0 auto;
+      color: $white-color;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: $green-color;
+      letter-spacing: 2px;
+      border-radius: 75px;
+      border: 2px solid $green-color;
+      padding: 15px;
+      width: 200px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    
+    .gridViewPlaylistItem {
+      display: inline-block;
+      margin-right: 30px;
+      width: 29%;
+      max-width: 200px;
+      min-width: 150px;
+      margin-bottom: 20px;
+
+      .gridViewImage {
+        border: 1px solid $dark-grey;
+        padding: 10px;
+
+        img {
+          width: 100%;
+        }
+      }  
+
+      .gridViewInfo {
+        text-align: center;  
+        font-size: 16px; 
+        font-weight: 900;
+        margin-top: 15px; 
+      }
+    }
+  }
+}
+
+/* 
+*   Page for playlist.php
+*/
+.deleteButton {
+    display: block;
+    color: $white-color;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: transparent;
+    letter-spacing: 1px;
+    border-radius: 75px;
+    border: 2px solid $white-color;
+    padding: 10px;
+    width: 200px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.gridViewImage {
+  border: 1px solid $dark-grey;
+  padding: 10px;
+}  

@@ -19,6 +19,39 @@ function openPage(url) {
 	history.pushState(null, null, url); // Create an illusion that its changing URL but its not (manipulate the URL) because of AJAX
 }
 
+function createNewPlaylist() {
+	//console.log(userLoggedIn); Come from global variable
+	var popup = prompt("Please enter the name of your playlist");
+
+	if(popup != null) {
+		$.post("includes/handlers/ajax/createPlaylist.php", { name: popup, username: userLoggedIn })
+		.done(function(error) {
+			if(error != "") {
+				alert(error);
+				return;
+			}
+			// do something when ajax returns
+			openPage('yourMusic.php');
+		});
+	}
+}
+
+function deletePlaylist(playlistId) {
+	var prompt = confirm('Are you sure want to delete this playlist?');
+
+	if(prompt) {
+		$.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: playlistId })
+		.done(function(error) {
+			if(error != "") {
+				alert(error);
+				return;
+			}
+			// do something when ajax returns
+			openPage('yourMusic.php');
+		});
+	}
+}
+
 function formatTime(seconds) {
 	var time = Math.round(seconds);
 	var minutes = Math.floor(time / 60);

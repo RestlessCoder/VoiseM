@@ -348,4 +348,68 @@ html, body {
     .artistContainer.borderBottom .searchResultArtist:hover {
       background-color: #282828; }
 
+/* 
+*   Page for yourMusic.php
+*/
+.playlistContainer {
+  text-align: left; }
+  .playlistContainer .gridViewPlaylistContainer {
+    margin: 15px 0; }
+    .playlistContainer .gridViewPlaylistContainer h3 {
+      font-size: 42px;
+      margin: 20px 0;
+      text-align: center; }
+    .playlistContainer .gridViewPlaylistContainer .createButton {
+      display: block;
+      margin: 0 auto;
+      color: #FFF;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: #2ebd59;
+      letter-spacing: 2px;
+      border-radius: 75px;
+      border: 2px solid #2ebd59;
+      padding: 15px;
+      width: 200px;
+      text-transform: uppercase;
+      margin-bottom: 30px; }
+    .playlistContainer .gridViewPlaylistContainer .gridViewPlaylistItem {
+      display: inline-block;
+      margin-right: 30px;
+      width: 29%;
+      max-width: 200px;
+      min-width: 150px;
+      margin-bottom: 20px; }
+      .playlistContainer .gridViewPlaylistContainer .gridViewPlaylistItem .gridViewImage {
+        border: 1px solid #282828;
+        padding: 10px; }
+        .playlistContainer .gridViewPlaylistContainer .gridViewPlaylistItem .gridViewImage img {
+          width: 100%; }
+      .playlistContainer .gridViewPlaylistContainer .gridViewPlaylistItem .gridViewInfo {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 900;
+        margin-top: 15px; }
+
+/* 
+*   Page for playlist.php
+*/
+.deleteButton {
+  display: block;
+  color: #FFF;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: transparent;
+  letter-spacing: 1px;
+  border-radius: 75px;
+  border: 2px solid #FFF;
+  padding: 10px;
+  width: 200px;
+  text-transform: uppercase;
+  margin-bottom: 30px; }
+
+.gridViewImage {
+  border: 1px solid #282828;
+  padding: 10px; }
+
 /*# sourceMappingURL=style.css.map */

@@ -180,19 +180,22 @@
 			
 			$.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
 				var artist = JSON.parse(data);
-
 				$('.artistName span').text(artist.name);
+				$('.artistName span').attr('onclick', "openPage('artist.php?id=" +  artist.id + "');");
 			});
 
 			$.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
 				var album = JSON.parse(data);
 
 				$('.albumArtwork img').attr('src', album.artworkPath);
+				$('.aLbumArtwork img').attr('onclick', "openPage('album.php?id=" +  album.id + "');");
+				$('.trackName span').attr('onclick', "openPage('album.php?id=" +  album.id + "');");
 			});
 
 			audioElement.setTrack(track);
-			playSong();
-		
+			if(play) {
+				playSong();
+			}
 		});
 		
 		
@@ -222,13 +225,13 @@
 		<div id="playingBarLeft">
 			<div class="content">
 				<div class="albumArtwork">
-					<img src="" alt="smiley">
+					<img src="" role="link" indextab="0" alt="smiley">
 				</div>
 				<div class="trackInfo">
-					<span class="trackName">
+					<span role="link" indextab="0" class="trackName">
 						<span></span>
 					</span>
-					<span class="artistName">
+					<span role="link" indextab="0" class="artistName">
 						<span></span>
 					</span>
 				</div>

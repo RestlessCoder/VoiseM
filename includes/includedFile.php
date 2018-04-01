@@ -20,7 +20,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
 	include('includes/header.php');
 	include('includes/footer.php');
 
-	// will display full url e.g. /VoiseM/index.php?id=1
+	// will display full url
 	$url = $_SERVER['REQUEST_URI'];
 	echo "<script>openPage('$url');</script>";
 	exit();

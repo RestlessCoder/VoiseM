@@ -6,6 +6,7 @@ $white-color: #FFF;
 $darkBlack-color: #181818;
 $black-color: #000;
 $green-color: #2ebd59;
+$red-color: #FF0000;
 
 // ===== MIXIN =====
 @mixin border-box() {
@@ -70,6 +71,29 @@ html, body {
     background-color: $dark-grey;
     @include appearance();
   }
+}
+
+.transparentButton {
+  display: block;
+  color: $white-color;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: transparent;
+  letter-spacing: 1px;
+  border-radius: 75px;
+  border: 2px solid $white-color;
+  padding: 10px;
+  width: 200px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.red {
+  color: $red-color;
+}
+
+.green {
+  color: $green-color;
 }
 
 /* 
@@ -659,3 +683,52 @@ html, body {
   border: 1px solid $dark-grey;
   padding: 10px;
 }  
+
+/* 
+*   Page for settings.php
+*/
+.buttonItems {
+  width: 200px;
+  margin: 0 auto;
+}
+
+/* 
+*   Page for updateDetails.php
+*/
+.userDetails .containerItems {
+  border-bottom: 1px solid $grey-color;
+  padding-bottom: 15px;
+
+  h2 {
+    text-align: center;
+    font-size: 36px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  .errorMessage,
+  .transparentButton {
+    display: block;
+    margin: 16px auto;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    height: 50px;
+    width: 60%;
+    background-color: $lightGrey-color;
+    font-weight: 300;
+    border: none;
+    font-size: 18px;
+    padding: 0 20px;
+    color: $white-color;
+  }
+
+  .errorMessage {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+
+}

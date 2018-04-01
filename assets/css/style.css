@@ -46,6 +46,26 @@ html, body {
     -moz-appearance: none;
     appearance: none; }
 
+.transparentButton {
+  display: block;
+  color: #FFF;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: transparent;
+  letter-spacing: 1px;
+  border-radius: 75px;
+  border: 2px solid #FFF;
+  padding: 10px;
+  width: 200px;
+  text-transform: uppercase;
+  margin-bottom: 30px; }
+
+.red {
+  color: #FF0000; }
+
+.green {
+  color: #2ebd59; }
+
 /* 
 *   Page for index.php
 */
@@ -440,5 +460,43 @@ html, body {
 .gridViewImage {
   border: 1px solid #282828;
   padding: 10px; }
+
+/* 
+*   Page for settings.php
+*/
+.buttonItems {
+  width: 200px;
+  margin: 0 auto; }
+
+/* 
+*   Page for updateDetails.php
+*/
+.userDetails .containerItems {
+  border-bottom: 1px solid #a0a0a0;
+  padding-bottom: 15px; }
+  .userDetails .containerItems h2 {
+    text-align: center;
+    font-size: 36px; }
+  .userDetails .containerItems input[type="email"],
+  .userDetails .containerItems input[type="password"],
+  .userDetails .containerItems .errorMessage,
+  .userDetails .containerItems .transparentButton {
+    display: block;
+    margin: 16px auto; }
+  .userDetails .containerItems input[type="email"],
+  .userDetails .containerItems input[type="password"] {
+    height: 50px;
+    width: 60%;
+    background-color: #404040;
+    font-weight: 300;
+    border: none;
+    font-size: 18px;
+    padding: 0 20px;
+    color: #FFF; }
+  .userDetails .containerItems .errorMessage {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: 0; }
 
 /*# sourceMappingURL=style.css.map */

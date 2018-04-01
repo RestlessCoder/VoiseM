@@ -116,6 +116,54 @@ function removeFromPlaylist(button, playlistId) {
 	});
 }
 
+function updateEmail(emailClass) {
+	var emailValue = $('.' + emailClass).val();
+
+	$.post("includes/handlers/ajax/updateEmail.php", { email: emailValue, username: userLoggedIn })
+	.done(function(response) {
+		// do something when ajax returns
+		$('.' + emailClass).nextAll('.errorMessage').text(response);
+		if(response == "Your Email has been change succesfully") {
+			$('.' + emailClass).nextAll('.errorMessage').removeClass("red");
+			$('.' + emailClass).nextAll('.errorMessage').addClass("green");
+		} else {
+			$('.' + emailClass).nextAll('.errorMessage').removeClass("green");
+			$('.' + emailClass).nextAll('.errorMessage').addClass("red");
+		}
+	});
+}
+
+function updatePassword(oldPasswordClass, newPassword1Class, newPassword2Class) {
+	var oldPassword = $('.' + oldPasswordClass).val();
+	var newPassword1 = $('.' + newPassword1Class).val();
+	var newPassword2 = $('.' + newPassword2Class).val();
+
+	$.post("includes/handlers/ajax/updatePassword.php", 
+		{ oldPassword: oldPassword, 
+			newPassword1: newPassword1,
+			newPassword2: newPassword2,
+			username: userLoggedIn })
+	.done(function(response) {
+		// do something when ajax returns
+		$('.' + oldPasswordClass).nextAll('.errorMessage').text(response);
+		if(response == "Your password has been change succesfully") {
+			$('.' + oldPasswordClass).nextAll('.errorMessage').removeClass("red");
+			$('.' + oldPasswordClass).nextAll('.errorMessage').addClass("green");
+		} else {
+			$('.' + oldPasswordClass).nextAll('.errorMessage').removeClass("green");
+			$('.' + oldPasswordClass).nextAll('.errorMessage').addClass("red");
+		}		
+	});
+}
+
+
+
+function logout() {
+	$.post("includes/handlers/ajax/logout.php", function() {
+		location.reload();
+	});
+}
+
 function formatTime(seconds) {
 	var time = Math.round(seconds);
 	var minutes = Math.floor(time / 60);

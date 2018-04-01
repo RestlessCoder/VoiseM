@@ -16,11 +16,16 @@
 			$query = mysqli_query($this->con, "SELECT * FROM albums WHERE id='$this->id'");
 			$album = mysqli_fetch_assoc($query);
 
+			$this->id = $album['id'];
 			$this->title = $album['title'];
 			$this->artistId = $album['artist'];
 			$this->genre = $album['genre'];
 			$this->artworkPath = $album['artworkPath'];
 
+		}
+
+		public function getId() {
+			return $this->id;
 		}
 
 		public function getTitle() {

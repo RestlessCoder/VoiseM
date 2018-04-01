@@ -21,7 +21,7 @@
 		<h1><?php echo $playlist->getName(); ?></h1>
 		<p><?php echo 'By ' . $playlist->getOwner(); ?></p>
 		<p><?php echo $playlist->getNumberOfSongs() . " ". ngettext("Song", "Songs", $playlist->getNumberOfSongs()); ?></p>
-		<button class="deleteButton" onclick="deletePlaylist(1)">DELETE PLAYLIST</button>
+		<button class="deleteButton" onclick="deletePlaylist(<?php echo $playlist->getId() ?>)">DELETE PLAYLIST</button>
 	</div>
 </div>
 
@@ -49,7 +49,8 @@
 							<span class='trackArtist'>" . $songArtist->getName() . "</span>
 						</div>
 						<div class='trackOptions'>
-							<img class='optionsButton' src='assets/images/icons/more.png' alt='play'>
+							<input type='hidden' class='songId' value='". $playlistSong->getId() ."'> 
+							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)' alt='play'>
 						</div>
 						<div class='trackDuration'>
 							<span class='duration'>" . $playlistSong->getDuration() . "</span>
@@ -66,5 +67,11 @@
 	</script>
 	</ul>
 </div>
+
+<nav class="optionsMenu">
+	<input type="hidden" class="songId"></input>
+	<?php echo Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
+	<div class="itemMenu" onclick="removeFromPlaylist(this, '<?php echo $playlistId ?>')">Remove from playlist</div>
+</nav>
 
 

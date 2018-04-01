@@ -17,6 +17,35 @@ html, body {
   text-align: center;
   display: block; }
 
+.optionsMenu {
+  position: fixed;
+  background-color: #282828;
+  width: 200px;
+  z-index: 999;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  display: none; }
+  .optionsMenu .itemMenu {
+    padding: 12px 20px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    font-weight: 700;
+    background-color: #282828;
+    color: #FFF;
+    border: none;
+    font-size: 12px;
+    font-family: Arial; }
+    .optionsMenu .itemMenu:hover {
+      background-color: #404040; }
+  .optionsMenu select {
+    background-color: #282828;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
+
 /* 
 *   Page for index.php
 */

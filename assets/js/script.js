@@ -8,6 +8,34 @@ var repeat = false;
 var shuffle = false;
 var userLoggedIn;
 
+$(window).on("scroll", function() {
+	hideOptionsMenu();
+});
+
+$(document).click(function(event) {
+	var target = $(event.target);
+	if(!target.hasClass('itemMenu') && !target.hasClass('optionsButton')) {
+		hideOptionsMenu();
+	}
+});
+
+$(document).on('change', 'select.playlist', function() {
+	var select = $(this);
+	var playlistId = select.val();
+	var songId = select.prev(".songId").val();
+
+	$.post("includes/handlers/ajax/addToPlaylist.php", { playlistId: playlistId, songId: songId })
+	.done(function(error) {
+		if(error != "") {
+			alert(error);
+			return;
+		}
+		// do something when ajax returns
+		hideOptionsMenu();
+		select.val("");
+	});
+});
+
 function openPage(url) {
 	if(url.indexOf('?') == -1) {
 		url = url + '?';
@@ -17,6 +45,28 @@ function openPage(url) {
 	$('#mainContent').load(encodedUrl);
 	$('body').scrollTop(0);
 	history.pushState(null, null, url); // Create an illusion that its changing URL but its not (manipulate the URL) because of AJAX
+}
+
+function showOptionsMenu(button) {
+	var songId = $(button).prevAll('.songId').val();
+	var menu = $('.optionsMenu');
+	var menuWidth = menu.width();
+	menu.find('.songId').val(songId);
+
+	var scrollTop = $(window).scrollTop(); // Distance from top of window to the top of document
+	var elementOffSet = $(button).offset().top; // Distance from top of the document
+
+	var top = elementOffSet - scrollTop; 
+	var left = $(button).position().left;
+
+	menu.css({ "top": + top + "px", "left": + left - menuWidth + "px", "display": "inline" });
+}
+
+function hideOptionsMenu() {
+	var menu = $('.optionsMenu');	
+	if(menu.css("display") != "none") {
+		menu.css("display", "none");
+	}
 }
 
 function createNewPlaylist() {
@@ -50,6 +100,20 @@ function deletePlaylist(playlistId) {
 			openPage('yourMusic.php');
 		});
 	}
+}
+
+function removeFromPlaylist(button, playlistId) {
+	var songId = $(button).prevAll(".songId").val();
+
+	$.post("includes/handlers/ajax/removeFromPlaylist.php", { playlistId: playlistId, songId: songId })
+	.done(function(error) {
+		if(error != "") {
+			alert(error);
+			return;
+		}
+		// do something when ajax returns
+		openPage('playlist.php?id=' + playlistId);
+	});
 }
 
 function formatTime(seconds) {

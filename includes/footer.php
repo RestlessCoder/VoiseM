@@ -2,7 +2,7 @@
 			</div><!-- End of main view container -->
 		</div><!-- End of top container -->
 
-		<?php include('includes/PlayingBarContainer.php') ?>
+		<?php include('includes/playingBarContainer.php') ?>
 	
 	</div><!-- End of main container -->
 	

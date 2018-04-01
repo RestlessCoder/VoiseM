@@ -142,5 +142,4 @@ $(function() {
 <nav class="optionsMenu">
 	<input type="hidden" class="songId"></input>
 	<?php echo Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
-	<div class="itemMenu">Item2</div>
 </nav>

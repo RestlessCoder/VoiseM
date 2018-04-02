@@ -1,3 +1,26 @@
+.noTabletAndMobile {
+  overflow: hidden; }
+  .noTabletAndMobile h2 {
+    visibility: hidden; }
+  @media only screen and (max-width: 768px) {
+    .noTabletAndMobile {
+      position: fixed;
+      background: #000;
+      right: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 9999; }
+      .noTabletAndMobile h2 {
+        visibility: visible;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        color: #FFF;
+        text-align: center; } }
+
 html, body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -25,6 +48,9 @@ html, body {
     max-width: 1096px;
     color: #FFF;
     line-height: 1em; }
+    @media only screen and (max-width: 768px) {
+      #main-background #loginContainer {
+        display: none; } }
   #main-background .inputContainer {
     width: 400px;
     padding: 55px;
@@ -91,6 +117,9 @@ html, body {
   #main-background #hero-text-box {
     padding: 45px;
     display: table-cell; }
+    @media only screen and (max-width: 768px) {
+      #main-background #hero-text-box {
+        display: none; } }
     #main-background #hero-text-box h1 {
       color: #07d159;
       font-weight: bold;

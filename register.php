@@ -122,6 +122,10 @@
 		</div> <!-- End of Login Container -->
 	</div> <!-- End of background -->
 
+	<div class="noTabletAndMobile">
+		<h2>This page does not support Tablet and Mobile</h2>
+	</div>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="assets/js/register.js" type="text/javascript"></script>
 	

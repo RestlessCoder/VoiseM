@@ -24,6 +24,15 @@
 			exit();
 		}
 
+		$emailQuery = mysqli_query($con, "SELECT email FROM users WHERE email='$email'");
+
+		while($row = mysqli_fetch_assoc($emailQuery)) {
+			if($email == $row['email']) {
+				echo "Cannot reuse old email";
+				exit();
+			}
+		}
+
 		$updateEmail = mysqli_query($con, "UPDATE users SET email = '$email' WHERE username='$username'");
 		echo "Your Email has been change succesfully";
 

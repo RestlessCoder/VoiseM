@@ -1,3 +1,26 @@
+.noTabletAndMobile {
+  overflow: hidden; }
+  .noTabletAndMobile h2 {
+    visibility: hidden; }
+  @media only screen and (max-width: 768px) {
+    .noTabletAndMobile {
+      position: fixed;
+      background: #000;
+      right: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 9999; }
+      .noTabletAndMobile h2 {
+        visibility: visible;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        color: #FFF;
+        text-align: center; } }
+
 html, body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

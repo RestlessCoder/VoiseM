@@ -22,6 +22,35 @@ $red-color: #FF0000;
   appearance: none;
 }
 
+.noTabletAndMobile {
+  overflow: hidden;
+
+  h2 {
+    visibility: hidden;
+  }
+
+  @media only screen and (max-width: 768px) {
+    position: fixed;
+      background: #000;
+      right: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 9999;
+
+      h2 {
+        visibility: visible;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 400px;
+        color: $white-color;
+        text-align: center;
+      }
+  }
+}
+
 html, body {
   @include border-box();
   padding: 0;

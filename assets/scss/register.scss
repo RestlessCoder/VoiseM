@@ -29,6 +29,35 @@ $red-color: #ff0000;
   :-ms-input-placeholder      {@content}  
 }
 
+.noTabletAndMobile {
+	overflow: hidden;
+
+	h2 {
+		visibility: hidden;
+	}
+
+	@media only screen and (max-width: 768px) {
+		position: fixed;
+	    background: #000;
+	    right: 0;
+	    top: 0;
+	    left: 0;
+	    bottom: 0;
+	    z-index: 9999;
+
+	    h2 {
+	    	visibility: visible;
+	    	position: relative;
+	    	top: 50%;
+	    	left: 50%;
+	    	transform: translate(-50%,-50%);
+	    	width: 400px;
+	    	color: $white-color;
+	    	text-align: center;
+	    }
+	}
+}
+
 html, body {
 	@include border-box();
 	padding: 0;
@@ -43,6 +72,9 @@ html, body {
 	width: 100%;
 
 	#loginContainer {
+		@media only screen and (max-width: 768px) {
+			display: none;
+		}
 		font-family: "fantasy", sans-serif;
 		font-weight: normal;
 		width: 80%;
@@ -126,6 +158,9 @@ html, body {
 	}
 
 	#hero-text-box {
+		@media only screen and (max-width: 768px) {
+			display: none;
+		}
 		padding: 45px;
 		display: table-cell;
 
